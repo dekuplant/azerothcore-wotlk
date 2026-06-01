@@ -29,6 +29,13 @@ RUN mkdir -pv \
         /azerothcore/src                   \
         /azerothcore/build
 
+RUN apt-get update && \
+    apt-get install -y \
+    curl \
+    libcurl4-openssl-dev \
+    nlohmann-json3-dev \
+    && rm -rf /var/lib/apt/lists/*
+
 # Configure Timezone
 RUN apt-get update                                                       \
     && apt-get install -y --no-install-recommends tzdata ca-certificates \
